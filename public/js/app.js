@@ -1,3 +1,4 @@
+
 $(function() {
   $.ajax({
     url: 'ajax/content.html',
@@ -22,4 +23,18 @@ $(function() {
       }
     })
   }, 5000)
+
+  $('#myInfos').click(function() {
+    $.ajax({
+      url: 'ajax/info.html',
+      type: 'GET',
+      success: function (html) {
+        $('#infoBlock').html(html)
+      },
+      error: function () {
+        console.log('error')
+      } 
+    })
+  })
+
 });
