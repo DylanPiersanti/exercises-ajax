@@ -26,10 +26,10 @@
         </div>
         <div class="row">
           <div class="col-md-6 mt-4">
-            <form class="bg-light p-2 rounded" onsubmit="event.preventDefault()">
+            <form id="formulaire" class="bg-light p-2 rounded" onsubmit="event.preventDefault()" method="post" action="/user">
               <div class="form-group">
                 <label for="inputName">Nom</label>
-                <input value="Mon nom" type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Entrer un nom">
+                <input value="Mon nom" type="text" class="form-control" id="inputName" name="name" aria-describedby="emailHelp" placeholder="Entrer un nom">
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="sex" id="sex1" value="1" checked>
@@ -51,10 +51,10 @@
                   <option value="3">FullStack</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Envoyer</button>
+              <button id="formSubmit" type="submit" class="btn btn-primary">Envoyer</button>
             </form>
           </div>
-          <div class="col-md-6 mt-4">
+          <div id="formResult" class="col-md-6 mt-4">
             Poster le formulaire sur "/user" et afficher la réponse ici.
           </div>
         </div>

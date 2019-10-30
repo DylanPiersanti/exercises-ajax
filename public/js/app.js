@@ -1,5 +1,5 @@
 
-$(function() {
+$(function () {
   $.ajax({
     url: 'ajax/content.html',
     type: 'GET',
@@ -24,7 +24,7 @@ $(function() {
     })
   }, 5000)
 
-  $('#myInfos').click(function() {
+  $('#myInfos').click(function () {
     $.ajax({
       url: 'ajax/info.html',
       type: 'GET',
@@ -33,8 +33,30 @@ $(function() {
       },
       error: function () {
         console.log('error')
-      } 
+      }
     })
   })
+
+  $('#formulaire').submit(function () {
+
+    var data = $(this).serializeArray()
+    
+    var values = {}
+
+    data.forEach(function (data) {
+      values[data.name] = data.value
+    });
+
+    $.ajax({
+      url: '/user',
+      method: 'POST',
+      data: values,
+      success: function(html) {
+        $('#formResult').html(html)
+      }
+    })
+
+  })
+
 
 });
