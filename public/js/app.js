@@ -40,7 +40,7 @@ $(function () {
   $('#formulaire').submit(function () {
 
     var data = $(this).serializeArray()
-    
+
     var values = {}
 
     data.forEach(function (data) {
@@ -51,12 +51,44 @@ $(function () {
       url: '/user',
       method: 'POST',
       data: values,
-      success: function(html) {
+      success: function (html) {
         $('#formResult').html(html)
       }
     })
 
   })
 
+
+  // hours
+
+
+  var hour = parseInt($('[data-hours]').text())
+  var minute = parseInt($('[data-minutes]').text())
+  var seconde = parseInt($('[data-secondes]').text())
+
+  seconde = seconde + 1
+
+  if (seconde >= 59 && minute >= 59) {
+    
+    hour = 0
+    minute = 0
+    seconde = 0
+  }
+
+  if (hour <= 9) {
+    hour = '0' + hour
+  } 
+  
+  if (minute <= 9) {
+    minute = '0' + minute
+  } 
+  
+  if (seconde <= 9) {
+    seconde = '0' + seconde
+  }
+
+  $('[data-transformH]').text(hour)
+  $('[data-transformM]').text(minute)
+  $('[data-transformS]').text(seconde)
 
 });
