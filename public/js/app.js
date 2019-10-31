@@ -75,20 +75,15 @@ $(function () {
     seconde = 0
   }
 
-  if (hour <= 9) {
-    hour = '0' + hour
-  } 
-  
-  if (minute <= 9) {
-    minute = '0' + minute
-  } 
-  
-  if (seconde <= 9) {
-    seconde = '0' + seconde
-  }
+  function format(num) {
+    if (num <= 9) {
+      return "0" + num
+    }
+    return num
+   }
 
-  $('[data-transformH]').text(hour)
-  $('[data-transformM]').text(minute)
-  $('[data-transformS]').text(seconde)
+  $('[data-transformH]').text(format(hour))
+  $('[data-transformM]').text(format(minute))
+  $('[data-transformS]').text(format(seconde))
 
 });
